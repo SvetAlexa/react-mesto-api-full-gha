@@ -1,0 +1,16 @@
+.element__image {
+    width: 282px;
+    height: 282px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    background-color: #000;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    filter: brightness(90%);
+    transition: 1s ease;
+}
+
+.element__image:hover {
+    transform: scale(1.025)
+}
