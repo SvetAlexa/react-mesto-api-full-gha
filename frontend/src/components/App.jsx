@@ -29,7 +29,7 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState(null);
 
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
 
   const [cards, setCards] = useState([]);
 
@@ -201,7 +201,12 @@ function App() {
           setFormValue({ username: '', password: '' });
           setLoggedIn(true);
           setEmail(email);
+          console.log(data)
           navigate('/', { replace: true });
+          api.getUserInfo()
+            .then((data) => {
+              setCurrentUser(data);
+            })
         }
       })
       .catch((err) => {
