@@ -52,7 +52,7 @@ function App() {
           .then((dataUser) => {
             if (dataUser) {
               setLoggedIn(true);
-              setEmail(dataUser.data.email);
+              setEmail(dataUser.email);
               navigate("/", { replace: true })
             }
           })

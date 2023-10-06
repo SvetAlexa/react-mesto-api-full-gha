@@ -3,7 +3,6 @@ import { config } from './utils.js'
 class Api {
     constructor(config) {
         this._url = config.url;
-        this._headers = config.headers;
     }
 
     _onResponse(res) {
@@ -19,18 +18,30 @@ class Api {
             .then(this._onResponse)
     }
 
+    _getTokenLocalStorage() {
+        return localStorage.getItem('jwt')
+    }
+
 
     getUserInfo() {
+        const token = this._getTokenLocalStorage();
         return this._request(`/users/me`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
         })
     }
 
     getInitialCards() {
+        const token = this._getTokenLocalStorage();
         return this._request(`/cards`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
         })
     }
 
@@ -39,40 +50,60 @@ class Api {
     }
 
     createNewCard(dataCard) {
+        const token = this._getTokenLocalStorage();
         return this._request(`/cards`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
             body: JSON.stringify(dataCard)
         })
     }
 
     removeCard(cardId) {
+        const token = this._getTokenLocalStorage();
         return this._request(`/cards/${cardId}`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
         })
     }
 
     swapLike(cardId, statusIsLiked) {
+        const token = this._getTokenLocalStorage();
         return this._request(`/cards/${cardId}/likes`, {
             method: statusIsLiked ? 'DELETE' : 'PUT',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
         })
     }
 
     setUserInfo(data) {
+        const token = this._getTokenLocalStorage();
         return this._request(`/users/me`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
             body: JSON.stringify(data)
         })
     }
 
-    setAvatarPhoto(data) {
+    setAvatarPhoto(link) {
+        const token = this._getTokenLocalStorage();
         return this._request(`/users/me/avatar`, {
             method: 'PATCH',
-            headers: this._headers,
-            body: JSON.stringify(data)
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+            body: JSON.stringify({ "avatar": link })
         })
     }
 }
