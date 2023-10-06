@@ -1,8 +1,9 @@
-const express = require('express');
 require('dotenv').config();
+const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const appRouter = require('./routes/index');
 const errorHandle = require('./middlewares/errorHandle');
@@ -16,6 +17,7 @@ mongoose.connect(DB_PATH, {
   .catch(() => console.log('no connection'));
 
 const app = express();
+app.use(cors());
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
 
