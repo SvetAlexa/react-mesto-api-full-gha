@@ -1,0 +1,12 @@
+.sign__redirect-container {
+    display: flex;
+    column-gap: 4px;
+    padding-top: 15px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 640px) {
+    .sign__redirect-container {
+        padding-top: 20px;
+    }
+}

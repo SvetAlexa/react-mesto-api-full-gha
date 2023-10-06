@@ -7,6 +7,7 @@
 @media screen and (max-width: 940px) {
     .page__container-header {
         padding-left: 27px;
+        padding-right: 27px;
     }
 }
 

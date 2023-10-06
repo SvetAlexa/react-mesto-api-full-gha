@@ -9,5 +9,7 @@
     .header__logo {
         width: 103.74px;
         height: 24.4px;
+        padding-top: 7px;
+        padding-left: 30px;
     }
 }

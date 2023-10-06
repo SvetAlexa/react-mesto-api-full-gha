@@ -1,0 +1,11 @@
+@media screen and (min-width: 641px) {
+    .nav_is_closed {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .nav_is_closed {
+        display: none;
+    }
+}

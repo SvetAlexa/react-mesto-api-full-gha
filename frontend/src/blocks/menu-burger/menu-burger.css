@@ -1,0 +1,25 @@
+@media screen and (min-width: 641px) {
+    .menu-burger {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .menu-burger {
+        width: 24px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 10px;
+        padding-right: 30px;
+        cursor: pointer;
+        transition: .3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .menu-burger:hover {
+        opacity: 0.6;
+    }
+}

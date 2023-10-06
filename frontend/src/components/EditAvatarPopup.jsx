@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 import useFormValidator from "../hooks/useFormValidator"
 
-export default function EditAvatarPopup({ isOpen, isLoading, onClose, onUpdateAvatar, onOverlay }) {
+export default function EditAvatarPopup({ isOpen, isLoading, onClose, onUpdateAvatar }) {
     
     const { values, errors, setErrors, handleInputsChange, setValues, isValid, setIsValid } = useFormValidator()
 
@@ -22,11 +22,10 @@ export default function EditAvatarPopup({ isOpen, isLoading, onClose, onUpdateAv
     }, [isOpen])
 
     return (
-        <PopupWithForm name="edit-avatar" title="Обновить аватар" buttonText={`${!isLoading ? "Сохранить" : "Сохранение..."}`}
+        <PopupWithForm name="submit" title="Обновить аватар" buttonText={`${!isLoading ? "Сохранить" : "Сохранение..."}`}
             isOpen={isOpen}
             isValid={!isValid}
             onClose={onClose}
-            onOverlay={onOverlay}
             onSubmit={handleSubmit}>
             <ul className="popup__input-list">
                 <li className="popup__input-item">

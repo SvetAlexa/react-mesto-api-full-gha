@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+    .nav_is_hidden {
+        display: none;
+    }
+}

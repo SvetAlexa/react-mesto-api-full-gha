@@ -1,0 +1,26 @@
+.header__nav {
+    display: inline-block;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    text-decoration: none;
+    color: #fff;
+    padding-top: 9px;
+}
+
+.header__nav:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 640px) {
+    .header__nav {
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 13px;
+        padding-right: 30px;
+    }
+}
