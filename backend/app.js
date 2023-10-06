@@ -5,6 +5,7 @@ const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const appRouter = require('./routes/index');
 const errorHandle = require('./middlewares/errorHandle');
 
@@ -33,7 +34,11 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(requestLogger); // подключаем логгер запросов
+
 app.use(appRouter);
+
+app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
 
