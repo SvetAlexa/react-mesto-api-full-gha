@@ -103,7 +103,7 @@ class Api {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
               },
-            body: JSON.stringify({ "avatar": link })
+            body: JSON.stringify(link)
         })
     }
 }

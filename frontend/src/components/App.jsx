@@ -201,7 +201,6 @@ function App() {
           setFormValue({ username: '', password: '' });
           setLoggedIn(true);
           setEmail(email);
-          console.log(data)
           navigate('/', { replace: true });
           api.getUserInfo()
             .then((data) => {

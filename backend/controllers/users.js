@@ -102,7 +102,7 @@ function updateUserInfo(req, res, next, id, object) {
       if (!user) {
         return next(new NotFoundError('Пользователь по указанному _id не найден'));
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch(next);
 }
