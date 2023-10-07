@@ -1,5 +1,5 @@
 export const config = {
-    url: 'http://localhost:3000',
+    url: 'api.svetalexa.nomoredomainsrocks.ru',
 }
 
 export function checkResponse(res) {
