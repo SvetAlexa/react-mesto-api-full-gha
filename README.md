@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.37.121
+IP 158.160.37.121
 
 Frontend https://svetalexa.nomoredomainsrocks.ru
 
