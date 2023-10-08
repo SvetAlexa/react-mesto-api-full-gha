@@ -5,11 +5,11 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/SvetAlexa/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP 158.160.37.121
+IP 84.201.137.75
 
 Frontend https://svetalexa.nomoredomainsrocks.ru
 
