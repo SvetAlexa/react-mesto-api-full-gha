@@ -1,7 +1,6 @@
 import * as token from '../utils/token';
 import { checkResponse } from './utils';
-
-export const BASE_URL = 'http://api.svetalexa.nomoredomainsrocks.ru'
+import { BASE_URL } from './utils.js';
 
 export function request(endpoint, options) {
   const baseUrl = `${BASE_URL}${endpoint}`

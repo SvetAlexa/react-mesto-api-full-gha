@@ -1,6 +1,4 @@
-export const config = {
-    url: 'http://api.svetalexa.nomoredomainsrocks.ru',
-}
+export const BASE_URL = 'http://api.svetalexa.nomoredomainsrocks.ru'
 
 export function checkResponse(res) {
     if (res.ok) {
