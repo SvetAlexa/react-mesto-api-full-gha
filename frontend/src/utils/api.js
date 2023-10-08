@@ -2,7 +2,7 @@ import { BASE_URL } from './utils.js'
 
 class Api {
     constructor(url) {
-        this._url = BASE_URL;
+        this._url = url;
     }
 
     _onResponse(res) {
