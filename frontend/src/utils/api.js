@@ -1,8 +1,8 @@
-import { BASE_URL } from './utils.js'
+import { config } from './utils.js'
 
 class Api {
-    constructor(url) {
-        this._url = url;
+    constructor(config) {
+        this._url = config.url;
     }
 
     _onResponse(res) {
@@ -108,6 +108,6 @@ class Api {
     }
 }
 
-const api = new Api(BASE_URL);
+const api = new Api(config);
 
 export default api;
