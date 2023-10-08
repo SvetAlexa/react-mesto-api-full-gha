@@ -1,9 +1,10 @@
 import * as token from '../utils/token';
-import { checkResponse } from './utils';
-import { BASE_URL } from './utils.js';
+import { checkResponse, BASE_URL } from './utils';
+
+export const urlConfig = BASE_URL;
 
 export function request(endpoint, options) {
-  const baseUrl = `${BASE_URL}${endpoint}`
+  const baseUrl = `${urlConfig}${endpoint}`
   return fetch(baseUrl, options)
     .then((res) => {
       return checkResponse(res)

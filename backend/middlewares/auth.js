@@ -12,7 +12,7 @@ const tokenValidation = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, SECRET_KEY);
+    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? SECRET_KEY : 'secret-dev');
   } catch (e) {
     return next(new UnauthorizedError('Необходимо авторизоваться'));
   }
