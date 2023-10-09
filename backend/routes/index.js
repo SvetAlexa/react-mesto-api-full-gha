@@ -30,7 +30,7 @@ router.post('/signin', celebrate({
 router.use('/users', tokenValidation, usersRouter);
 router.use('/cards', tokenValidation, cardsRouter);
 
-router.use('/*', (req, res, next) => {
+router.use('/*', tokenValidation, (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
