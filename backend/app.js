@@ -28,13 +28,13 @@ const limiter = rateLimit({
   message: { message: 'Превышен лимит запросов. Попробуйте еще раз позже.' },
 });
 
+app.use(requestLogger); // подключаем логгер запросов
+
 app.use(limiter);
 app.use(helmet());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(requestLogger); // подключаем логгер запросов
 
 app.get('/crash-test', () => {
   setTimeout(() => {
