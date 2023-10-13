@@ -204,7 +204,7 @@ function App() {
           navigate('/', { replace: true });
           api.getUserInfo()
             .then((data) => {
-              setCurrentUser(data);
+              return setCurrentUser(data);
             })
         }
       })

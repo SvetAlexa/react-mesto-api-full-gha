@@ -1,7 +1,7 @@
 import * as token from '../utils/token';
 import { checkResponse } from './utils';
 
-export const BASE_URL = 'https://api.svetalexa.nomoredomainsrocks.ru';
+export const BASE_URL = 'https://api.larsik.nomoredomainsrocks.ru';
 
 export function request(endpoint, options) {
   const baseUrl = `${BASE_URL}${endpoint}`

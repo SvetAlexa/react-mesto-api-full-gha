@@ -11,6 +11,6 @@
 
 IP 84.201.137.75
 
-Frontend https://svetalexa.nomoredomainsrocks.ru
+Frontend https://larsik.nomoredomainsrocks.ru
 
-Backend https://api.svetalexa.nomoredomainsrocks.ru
+Backend https://api.larsik.nomoredomainsrocks.ru
