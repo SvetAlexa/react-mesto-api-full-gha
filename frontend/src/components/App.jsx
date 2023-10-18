@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
-import AddPlacePopup from "./AddPlacePopup";
-import EditProfilePopup from "./EditProfilePopup";
-import EditAvatarPopup from "./EditAvatarPopup";
-import DeleteCardPopup from "./DeleteCardPopup";
-import ImagePopup from "./ImagePopup";
-import PageNotFound from "./PageNotFound";
-import Register from "./Register";
-import Login from "./Login";
-import InfoTooltip from "./InfoTooltip";
-import ProtectedRoute from "./ProtectedRoute";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import api from "../utils/api";
-import * as auth from "../utils/auth";
-import * as token from "../utils/token";
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import AddPlacePopup from './AddPlacePopup';
+import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
+import DeleteCardPopup from './DeleteCardPopup';
+import ImagePopup from './ImagePopup';
+import PageNotFound from './PageNotFound';
+import Register from './Register';
+import Login from './Login';
+import InfoTooltip from './InfoTooltip';
+import ProtectedRoute from './ProtectedRoute';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import api from '../utils/api';
+import * as auth from '../utils/auth';
+import * as token from '../utils/token';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -42,16 +42,16 @@ function App() {
 
   const [registerStatus, setRegisterStatus] = useState({
     status: false,
-    title: "",
+    title: '',
   });
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
 
   const navigate = useNavigate();
 
   const tokenCheck = () => {
-    if (token.getToken("jwt")) {
-      const jwt = token.getToken("jwt");
+    if (token.getToken('jwt')) {
+      const jwt = token.getToken('jwt');
       if (jwt) {
         auth
           .checkToken(jwt)
@@ -59,7 +59,7 @@ function App() {
             if (dataUser) {
               setLoggedIn(true);
               setEmail(dataUser.email);
-              navigate("/", { replace: true });
+              navigate('/', { replace: true });
             }
           })
           .catch((err) => {
@@ -207,10 +207,10 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         if (data.token) {
-          setFormValue({ username: "", password: "" });
+          setFormValue({ username: '', password: '' });
           setLoggedIn(true);
           setEmail(email);
-          navigate("/", { replace: true });
+          navigate('/', { replace: true });
         }
       })
       .catch((err) => {
@@ -218,7 +218,7 @@ function App() {
         setIsInfoTooltipOpen(true);
         setRegisterStatus({
           status: false,
-          title: "Что-то пошло не так! Попробуйте ещё раз.",
+          title: 'Что-то пошло не так! Попробуйте ещё раз.',
         });
       });
   }
@@ -228,17 +228,17 @@ function App() {
     auth
       .register(email, password)
       .then(() => {
-        navigate("/sign-in", { replace: true });
+        navigate('/sign-in', { replace: true });
         setRegisterStatus({
           status: true,
-          title: "Вы успешно зарегистрировались!",
+          title: 'Вы успешно зарегистрировались!',
         });
       })
       .catch((err) => {
         console.error(`Произошла ошибка: ${err}`);
         setRegisterStatus({
           status: false,
-          title: "Что-то пошло не так! Попробуйте ещё раз.",
+          title: 'Что-то пошло не так! Попробуйте ещё раз.',
         });
       })
       .finally(() => {
@@ -247,21 +247,21 @@ function App() {
   }
 
   function handleSignOut() {
-    token.removeToken("jwt");
-    setEmail("");
+    token.removeToken('jwt');
+    setEmail('');
     setLoggedIn(false);
     setCurrentUser({});
     setCards([]);
-    navigate("/sign-in", { replace: true });
+    navigate('/sign-in', { replace: true });
   }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
+      <div className='page'>
         <Header email={email} onSignOut={handleSignOut} />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <ProtectedRoute
                 element={Main}
@@ -278,11 +278,11 @@ function App() {
             }
           />
           <Route
-            path="/sign-up"
+            path='/sign-up'
             element={<Register onRegister={handleRegister} />}
           />
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path='/sign-in' element={<Login onLogin={handleLogin} />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
       </div>
